@@ -162,4 +162,5 @@ cython_debug/
 #.idea/
 
 # Ignore config.json inside the config directory
-config/config.json
+config/api_config.json
+config/credentials.json
