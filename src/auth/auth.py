@@ -7,7 +7,7 @@ SCOPES = ["https://mail.google.com/"]
 
 def authenticate():
   creds = None
-  credentials_path = "config/credentials.json"
+  credentials_path = "config/user_credentials.json"
 
   # Check if config.json exists and load credentials
   if os.path.exists(credentials_path):
@@ -19,7 +19,7 @@ def authenticate():
       creds.refresh(Request())
     else:
       flow = InstalledAppFlow.from_client_secrets_file(
-          "config/api_config.json", SCOPES)
+          "config/credentials.json", SCOPES)
       creds = flow.run_local_server(port=0)
 
       # Save the credentials for the next run
