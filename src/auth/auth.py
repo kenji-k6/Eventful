@@ -1,9 +1,33 @@
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
 import os
 
-SCOPES = ["https://mail.google.com/"]
+SCOPES = ["https://mail.google.com/"] #add scopes for meets abnd calendar
+
+
+class GoogleServiceManager:
+  def __init__(self):
+    self.creds = None
+    self.gmail_service = None
+    self.calendar_service = None
+    self.meet_service = None
+  
+  def get_gmail_service(self):
+    if not self.gmail_service:
+      creds = authenticate()
+      self.gmail_service = build("gmail", "v1", credentials=creds)
+    return self.gmail_service
+
+  def get_calendar_service(self):
+    print("TODO: Implement get_calendar_service()")
+
+  def get_meet_service(self):
+    print("TODO: Implement get_meet_service()")      
+
+
+
 
 def authenticate():
   creds = None
@@ -33,3 +57,4 @@ def authenticate():
 
   return creds 
   
+
