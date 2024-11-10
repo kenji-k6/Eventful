@@ -164,6 +164,7 @@ cython_debug/
 # Ignore the user credentials and api credentials inside the config directory
 config/user_credentials.json
 config/credentials.json
+config/openai_credentials.json
 
 
 # Temporary ignore:
