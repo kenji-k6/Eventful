@@ -6,25 +6,30 @@ from typing import Optional
 client = OpenAI
 
 
+
 class MeetingEvent(BaseModel):
   name: str
-  start_time: str
-  end_time: Optional[str]
-  description: Optional[str]
-  participants: list[str]
-  location: Optional[str]
-  meeting_link: Optional[str]
-  meeting_is_virtual: bool 
+
+  start_date_time: list[str]
+
   meeting_time_is_proposal: bool
+
+  end_date_time: list[str]
+  meeting_is_virtual: list[bool]
+
+  location_or_link: list[Optional[str]]
 
 
 
 class GPTHelper:
-  def __init__(self):
+
+
+  def __init__(self, default_meeting_duration="1H", dates_relative_to="today", default_morning="9:00", default_afternoon="13:00", default_evening="18:00"):
     try:
       with open("config/openai_credentials.json") as f:
         data = json.load(f)
         self.client = OpenAI(api_key=data["api_key"])
+        self.QUERY = f"Extract the event details from the email. Ensure all lists are of equal length. Default meeting duration: {default_meeting_duration}. Default Morning Time: {default_morning}. Default Afternoon Time: {default_afternoon}. Default Evening Time: {default_evening}. Date-Time Format: YYYY-MM-DDTHH:MM:SS. Make the dates relative to: {dates_relative_to}"
         print("OpenAI client created")
     except FileNotFoundError:
       self.client = None
@@ -32,37 +37,19 @@ class GPTHelper:
     except json.JSONDecodeError:
       self.client = None
       raise json.JSONDecodeError("Error decoding OpenAI credentials. Please ensure that config/openai_credentials.json exists and is of correct format.")
+    
+  def get_event_info(self, message) -> MeetingEvent:
+    completion = self.client.beta.chat.completions.parse(
+      model="gpt-4o-mini",
+      messages=[
+        {"role": "system", "content": self.QUERY},
+        {"role": "user", "content": message},
+      ],
+      response_format=MeetingEvent,
+    )
+    return completion.choices[0].message.parsed
+  
 
-
-
-
-# async def generate_text(prompt, max_tokens=100):
-#    gpthelper = GPTHelper()
-#    completion = await gpthelper.client.chat.completions.create(
-#      model="gpt-4o-mini",
-#      messages=[
-#        {
-#          "role": "system",
-#          "content": "I just want to test stuff."
-#        }
-#      ]
-#    );
-#    print(completion)
-#    return completion
-
-def test_event_generate(message):
-  gpthelper = GPTHelper()
-  completion = gpthelper.client.beta.chat.completions.parse(
-    model="gpt-4o-mini",
-    messages=[
-      {"role": "system", "content": "Extract the event details from the email."},
-      {"role": "user", "content": message},
-    ],
-    response_format=MeetingEvent,
-  )
-
-  temp = completion.choices[0].message.parsed
-  print(temp)
 
 
 
