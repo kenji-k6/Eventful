@@ -1,14 +1,21 @@
 import json
 from src.integration.gpt_handler import GPTHelper, MeetingEvent
+from datetime import datetime
+import calendar
 
 # Date used to ensure tests are run on the same day
-TEST_DATE = "2024-11-18"
+TEST_DATE = datetime(2024, 11, 18)
+TEST_WEEKDAY = calendar.day_name[TEST_DATE.weekday()]
+TEST_SENT_ON = f"{str(TEST_WEEKDAY)} {str(TEST_DATE)}"
 TEST_DEFAULT_DURATION = "1H"
 emails = []
 
 
 # Test GPTHelper
-gpt = GPTHelper(dates_relative_to=TEST_DATE)
+gpt = GPTHelper(default_duration="1H",
+                default_morning="9:00",
+                default_afternoon="14:00",
+                default_evening="18:00")
 
 
 # Auxiliary Debug functions
@@ -33,20 +40,21 @@ except FileNotFoundError:
 
 # Helper function to get message string
 def get_message_str(stored_message) -> str:
-  return "Subject: " + stored_message["subject"] + "\n\n" + "Content: " + stored_message["content"]
-
+  return f"Sent On: {TEST_SENT_ON}\nSubject: {stored_message['subject']}\n\nContent: {stored_message['content']}"
+  # Sent on format is "<Weekday> YYYY-MM-DD"
 
 # Length assertions only for extracted dict
 def extracted_length_assertions(meeting: dict) -> None:
   n = len(meeting["start_date_time"])
 
-  # Make sure all length coincide
-  assert(n == len(meeting["location_or_link"]))
+  # Make sure all lengths coincide
   assert(n == len(meeting["end_date_time"]))
-  assert(n == len(meeting["meeting_is_virtual"]))
-
+  assert(n ==len(meeting["is_virtual"]))
+  assert(n == len(meeting["location"]))
+  assert(n == len(meeting["link"]))
+  
   # if meeting is not just a proposal, make sure length is 1
-  if not meeting["meeting_time_is_proposal"]:
+  if not meeting["is_proposal"]:
     assert(n == 1)
 
 
@@ -59,8 +67,8 @@ def lengths_match_assertions(meeting: dict, expected: dict) -> None:
 
 def field_assertions(meeting: dict, expected: dict) -> None:
   for key in expected:
-    if key == "name": continue
-    if key == "meeting_time_is_proposal":
+    if key == "subject": continue # Skip subject
+    if key == "is_proposal":
       if meeting[key] != expected[key]:
         print(f"Mismatch in {key}:\n")
         print_dicts(meeting, expected)

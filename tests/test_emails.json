@@ -3,12 +3,13 @@
     "subject": "One-on-One Meeting",
     "content": "Hi,\nCan we meet tomorrow at 9 AM or Friday at 2 PM? If either works, let me know, and we can confirm. We’ll meet at my office (Room 305).\nThanks,\nTom",
     "result": {
-      "name": "One-on-One Meeting",
+      "subject": "One-on-One Meeting",
       "start_date_time": ["2024-11-19T09:00:00", "2024-11-22T14:00:00"],
-      "meeting_time_is_proposal": true,
       "end_date_time": ["2024-11-19T10:00:00", "2024-11-22T15:00:00"],
-      "meeting_is_virtual": [false, false],
-      "location_or_link": ["Room 305", "Room 305"]
+      "is_proposal": true,
+      "is_virtual": [false, false],
+      "location": ["Room 305", "Room 305"],
+      "link": [null, null]
     }
   },
 
@@ -17,12 +18,13 @@
     "subject": "Marketing Update",
     "content": "Hi Team,\nPlease join the marketing update call on Thursday at 10 AM. Dial-in using: https://meet.google.com/abc-defg-hij.\nRegards,\nSusan",
     "result": {
-      "name": "Marketing Update",
+      "subject": "Marketing Update",
       "start_date_time": ["2024-11-21T10:00:00"],
-      "meeting_time_is_proposal": false,
       "end_date_time": ["2024-11-21T11:00:00"],
-      "meeting_is_virtual": [true],
-      "location_or_link": ["https://meet.google.com/abc-defg-hij"]
+      "is_proposal": false,
+      "is_virtual": [true],
+      "location": [null],
+      "link": ["https://meet.google.com/abc-defg-hij"]
     }
   },
 
@@ -31,12 +33,13 @@
     "subject": "Tech Strategy Discussion",
     "content": "Hi Team,\nLet’s discuss our tech strategy next week. How about Monday at 3 PM or Tuesday at 4 PM? If another time works better, let me know.\nCheers,\nRavi",
     "result": {
-      "name": "Tech Strategy Discussion",
+      "subject": "Tech Strategy Discussion",
       "start_date_time": ["2024-11-25T15:00:00", "2024-11-26T16:00:00"],
-      "meeting_time_is_proposal": true,
       "end_date_time": ["2024-11-25T16:00:00", "2024-11-26T17:00:00"],
-      "meeting_is_virtual": [null, null],
-      "location_or_link": [null, null]
+      "is_proposal": true,
+      "is_virtual": [null, null],
+      "location": [null, null],
+      "link": [null, null]
     }
   },
 
@@ -45,12 +48,13 @@
     "subject": "Weekly All-Hands",
     "content": "Hello Everyone,\nThe weekly all-hands meeting is scheduled for Friday at 11 AM in the Main Conference Room. The meeting will last for around 2.5h. Attendance is mandatory.\nBest regards,\nManagement",
     "result": {
-      "name": "Weekly All-Hands",
+      "subject": "Weekly All-Hands",
       "start_date_time": ["2024-11-22T11:00:00"],
-      "meeting_time_is_proposal": false,
       "end_date_time": ["2024-11-22T13:30:00"],
-      "meeting_is_virtual": [false],
-      "location_or_link": ["Main Conference Room"]
+      "is_proposal": false,
+      "is_virtual": [false],
+      "location": ["Main Conference Room"],
+      "link": [null]
     }
   },
 
@@ -59,12 +63,13 @@
     "subject": "UX Feedback Session",
     "content": "Hi Team,\nWe’ll meet this Thursday at 2 PM for a UX feedback session. Join at https://zoom.us/j/555666777.\nBest,\nNina",
     "result": {
-      "name": "UX Feedback Session",
+      "subject": "UX Feedback Session",
       "start_date_time": ["2024-11-21T14:00:00"],
-      "meeting_time_is_proposal": false,
       "end_date_time": ["2024-11-21T15:00:00"],
-      "meeting_is_virtual": [true],
-      "location_or_link": ["https://zoom.us/j/555666777"]
+      "is_proposal": false,
+      "is_virtual": [true],
+      "location": [null],
+      "link": ["https://zoom.us/j/555666777"]
     }
   },
 
@@ -73,12 +78,13 @@
     "subject": "Sync on Budget Projections (Proposal)",
     "content": "Hi Elena,\nCould we sync on the budget projections? How does Thursday at 2:30 PM work? Alternatively, Friday morning at 9:00 could be an option. Let me know which works best for you.\nBest,\nLucas",
     "result": {
-      "name": "Sync on Budget Projections",
+      "subject": "Sync on Budget Projections",
       "start_date_time": ["2024-11-21T14:30:00", "2024-11-22T09:00:00"],
-      "meeting_time_is_proposal": true,
       "end_date_time": ["2024-11-21T15:30:00", "2024-11-22T10:00:00"],
-      "meeting_is_virtual": [null, null],
-      "location_or_link": [null, null]
+      "is_proposal": true,
+      "is_virtual": [null, null],
+      "location": [null, null],
+      "link": [null, null]
     }
   },
 
@@ -87,12 +93,13 @@
     "subject": "Team Retrospective – This Friday (Scheduled)",
     "content": "Hi Team,\nOur retrospective is set for this Wednesday at 11:00 AM in Conference Room A. Please come prepared with key wins and areas for improvement.\nLooking forward to hearing everyone’s thoughts.\nBest regards,\nMartha",
     "result": {
-      "name": "Team Retrospective",
+      "subject": "Team Retrospective",
       "start_date_time": ["2024-11-20T11:00:00"],
-      "meeting_time_is_proposal": false,
       "end_date_time": ["2024-11-20T12:00:00"],
-      "meeting_is_virtual": [false],
-      "location_or_link": ["Conference Room A"]
+      "is_proposal": false,
+      "is_virtual": [false],
+      "location": ["Conference Room A"],
+      "link": [null]
     }
   },
 
@@ -101,12 +108,13 @@
     "subject": "Discussion on Campaign Strategy (Proposal)",
     "content": "Hey Sofia,\nWould Tuesday at 3:00 PM or Wednesday morning at 10 work for discussing the campaign strategy? I can send a Zoom link once we confirm.\nBest,\nChris",
     "result": {
-      "name": "Discussion on Campaign Strategy",
+      "subject": "Discussion on Campaign Strategy",
       "start_date_time": ["2024-11-19T15:00:00", "2024-11-20T10:00:00"],
-      "meeting_time_is_proposal": true,
       "end_date_time": ["2024-11-19T16:00:00", "2024-11-20T11:00:00"],
-      "meeting_is_virtual": [null, null],
-      "location_or_link": [null, null]
+      "is_proposal": true,
+      "is_virtual": [true, true],
+      "location": [null, null],
+      "link": [null, null]
     }
   },
 
@@ -115,12 +123,13 @@
     "subject": "Mandatory Performance Review (Scheduled)",
     "content": "Hi Emily,\nThis is a reminder of your performance review meeting scheduled for Tuesday, November 19th, at 2:00 PM in my office (Room 215). Please bring any materials you'd like to discuss.\nBest regards,\nJonathan",
     "result": {
-      "name": "Mandatory Performance Review",
+      "subject": "Mandatory Performance Review",
       "start_date_time": ["2024-11-19T14:00:00"],
-      "meeting_time_is_proposal": false,
       "end_date_time": ["2024-11-19T15:00:00"],
-      "meeting_is_virtual": [false],
-      "location_or_link": ["Room 215"]
+      "is_proposal": false,
+      "is_virtual": [false],
+      "location": ["Room 215"],
+      "link": [null]
     }
   },
 
@@ -129,12 +138,13 @@
     "subject": "Finalizing the Presentation (Proposal)",
     "content": "Hi Anika,\nCan we finalize the presentation this week? I’m free Thursday after 1 PM or Friday morning. If those don’t work, suggest another time.\nThanks,\nMatt",
     "result": {
-      "name": "Finalizing the Presentation",
-      "start_date_time": ["2024-11-21T13:00:00", "2024-11-22T09:00:00"],
-      "meeting_time_is_proposal": true,
-      "end_date_time": ["2024-11-21T14:00:00", "2024-11-22T10:00:00"],
-      "meeting_is_virtual": [null, null],
-      "location_or_link": [null, null]
+      "subject": "Finalizing the Presentation",
+      "start_date_time": ["2024-11-21T14:00:00", "2024-11-22T09:00:00"],
+      "end_date_time": ["2024-11-21T15:00:00", "2024-11-22T10:00:00"],
+      "is_proposal": true,
+      "is_virtual": [null, null],
+      "location": [null, null],
+      "link": [null, null]
     }
   },
 
@@ -143,12 +153,13 @@
     "subject": "Product Launch Planning Meeting (Scheduled)",
     "content": "Hi All,\nThe planning meeting for the product launch is scheduled for Wednesday at 3:00 PM in Room 302. This is a key session, so please ensure your attendance.\nBest,\nSarah",
     "result": {
-      "name": "Product Launch Planning Meeting",
+      "subject": "Product Launch Planning Meeting",
       "start_date_time": ["2024-11-20T15:00:00"],
-      "meeting_time_is_proposal": false,
       "end_date_time": ["2024-11-20T16:00:00"],
-      "meeting_is_virtual": [false],
-      "location_or_link": ["Room 302"]
+      "is_proposal": false,
+      "is_virtual": [false],
+      "location": ["Room 302"],
+      "link": [null]
     }
   },
 
@@ -157,12 +168,13 @@
     "subject": "Coffee Chat?",
     "content": "Hey Tim,\nWould you be up for a quick coffee chat to discuss your insights on the last sprint? How about Thursday Morning for like 15 minutes at Starbucks near Stadelhofen, or Friday Afternoon for a 30minute chat in the Cafeteria?\nLet me know what works best for you buddy.\nCheers,\nClara",
     "result": {
-      "name": "Coffee Chat",
+      "subject": "Coffee Chat",
       "start_date_time": ["2024-11-21T09:00:00", "2024-11-22T14:00:00"],
-      "meeting_time_is_proposal": true,
       "end_date_time": ["2024-11-21T09:15:00", "2024-11-22T14:30:00"],
-      "meeting_is_virtual": [false],
-      "location_or_link": ["Starbucks near Stadelhofen", "Cafeteria"]
+      "is_proposal": true,
+      "is_virtual": [false, false],
+      "location": ["Starbucks near Stadelhofen", "Cafeteria"],
+      "link": [null, null]
     }
   }
 ]
