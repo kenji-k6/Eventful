@@ -26,8 +26,6 @@ class MeetingEvent():
     
 
 
-
-
 class GPTHelper:
   def __init__(self, default_duration="1H", default_morning="9:00", default_afternoon="14:00", default_evening="18:00"):
     try:
