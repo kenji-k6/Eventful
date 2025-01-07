@@ -165,6 +165,7 @@ cython_debug/
 config/user_credentials.json
 config/credentials.json
 config/openai_credentials.json
+config/test_email.json
 
 
 # Temporary ignore:
