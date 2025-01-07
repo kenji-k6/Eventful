@@ -1,6 +1,5 @@
-from src.auth.auth import GoogleServiceManager
-from src.email.gmail import get_messages, create_reply_draft
-from src.integration.gpt_handler import GPTHelper, test_event_generate
+from datetime import datetime
+import calendar
 import json
 
 if __name__ == "__main__":
@@ -16,9 +15,12 @@ if __name__ == "__main__":
   # assert(test_message["snippet"] == "Test 123 readme readme Test123")
   # create_reply_draft(service=gmail_test_service, message_id=test_reply_msg_id, draft_text="Hello, this is a test")
 
-  with open("config/test_email.json") as f:
-    data = json.load(f)
-    message = "Subject: " + data["subject"] + "\n\n" + "Content: " + data["content"]
-    print(message)
-    res = test_event_generate(message)
-    print(res)
+  # with open("config/test_email.json") as f:
+  #   data = json.load(f)
+  #   message = "Subject: " + data["subject"] + "\n\n" + "Content: " + data["content"]
+  #   print(message)
+  #   res = test_event_generate(message)
+  #   print(res)
+  temp = datetime(2024, 11, 18).date()
+  print(calendar.day_name[temp.weekday()])
+  print(str(temp))
