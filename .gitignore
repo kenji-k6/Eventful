@@ -161,6 +161,10 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# Ignore config.json inside the config directory
-config/api_config.json
+# Ignore the user credentials and api credentials inside the config directory
+config/user_credentials.json
 config/credentials.json
+
+
+# Temporary ignore:
+addtoreadme.txt
