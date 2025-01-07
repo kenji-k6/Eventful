@@ -1,4 +1,4 @@
-# WORK
+# WORK IN PROGRESS
 # Eventful - A Gmail, Google Calendar, and Google Meet Integration
 
 This project is an integration tool that connects Gmail, Google Calendar, and Google Meet to help automate the management of events. It uses Google's official APIs to interact with these services and provides a simple interface to manage emails, events, and video calls.
