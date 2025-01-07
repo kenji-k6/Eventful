@@ -1,6 +1,6 @@
 from src.auth.auth import GoogleServiceManager
-from src.email_processing.gmail import get_messages, create_reply_draft
-from src.email_processing.gpt_handler import GPTHelper, test_event_generate
+from src.email.gmail import get_messages, create_reply_draft
+from src.integration.gpt_handler import GPTHelper, test_event_generate
 import json
 
 if __name__ == "__main__":
